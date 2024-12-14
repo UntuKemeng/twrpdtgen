@@ -21,3 +21,14 @@ jobs:
 
       - name: Building 🖥️
         run: python -m twrpdtgen recovery.img
+
+      - name: Zipping 🎁
+        run: |
+          cd /home/runner/work/twrpdtgen/twrpdtgen/output/samsung/grandpplte
+          zip -r9 TWRP_SAMSUNG_J2_PRIME.zip *
+
+      - name: TWRP
+        uses: actions/upload-artifact@v4
+        with:
+          name: TWRP_SAMSUNG_J2_PRIME.zip
+          path: /home/runner/work/twrpdtgen/twrpdtgen/output/samsung/grandpplte/TWRP_SAMSUNG_J2_PRIME.zip
