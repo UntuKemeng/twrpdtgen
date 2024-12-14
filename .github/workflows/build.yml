@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CheckOut ⚙️
+        uses: actions/checkout@v3
+
+      - name: Anu ⏳
+        run: |
+          sudo apt-get install cpio
+          sudo pip install twrpdtgen
+
+      - name: Building 🖥️
+        run: python -m twrpdtgen recovery.img
