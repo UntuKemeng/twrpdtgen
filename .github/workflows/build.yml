@@ -20,17 +20,15 @@ jobs:
           sudo pip install twrpdtgen
 
       - name: Building 🖥️
+        run: python -m twrpdtgen recovery.img
+
+      - name: Zipping 🎁
         run: |
-            python -m twrpdtgen recovery.img
-            ls /home/runner/work/twrpdtgen/twrpdtgen/output/
+          cd /home/runner/work/twrpdtgen/twrpdtgen/output/vivo/1938
+          zip -r9 TWRP_VIVO_Y30I.zip *
 
-      # - name: Zipping 🎁
-        # run: |
-          # cd /home/runner/work/twrpdtgen/twrpdtgen/output/samsung/grandpplte
-          # zip -r9 TWRP_SAMSUNG_J2_PRIME.zip *
-
-      # - name: TWRP
-        # uses: actions/upload-artifact@v4
-        # with:
-          # name: TWRP_SAMSUNG_J2_PRIME.zip
-          # path: /home/runner/work/twrpdtgen/twrpdtgen/output/samsung/grandpplte/TWRP_SAMSUNG_J2_PRIME.zip
+      - name: TWRP
+        uses: actions/upload-artifact@v4
+        with:
+          name: TWRP_VIVO_Y30I.zip
+          path: /home/runner/work/twrpdtgen/twrpdtgen/output/vivo/1938/TWRP_VIVO_Y30I.zip
