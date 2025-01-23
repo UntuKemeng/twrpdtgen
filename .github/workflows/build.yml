@@ -20,7 +20,7 @@ jobs:
           sudo pip install twrpdtgen
 
       - name: Building 🖥️
-        run: python -m twrpdtgen recovery.img
+        run: python -m twrpdtgen boot.img
 
       - name: Zipping 🎁
         run: |
